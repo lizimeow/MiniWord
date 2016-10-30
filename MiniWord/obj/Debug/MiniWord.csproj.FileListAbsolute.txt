@@ -1,0 +1,10 @@
+d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\bin\Debug\MiniWord.exe.config
+d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\bin\Debug\MiniWord.exe
+d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\bin\Debug\MiniWord.pdb
+d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\obj\Debug\MiniWord.csprojResolveAssemblyReference.cache
+d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\obj\Debug\MiniWord.MDIParent1.resources
+d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\obj\Debug\MiniWord.Properties.Resources.resources
+d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\obj\Debug\MiniWord.csproj.GenerateResource.Cache
+d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\obj\Debug\MiniWord.exe
+d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\obj\Debug\MiniWord.pdb
+d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\obj\Debug\MiniWord.TextForm.resources
