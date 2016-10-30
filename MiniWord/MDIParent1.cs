@@ -19,6 +19,8 @@ namespace MiniWord
         //private ArrayList tfArr;
         private PageSettings storedPageSettings = null;
         private PrintDocument printDoc = new PrintDocument();
+        private StringReader lineReader;
+        private Font printFont = new Font("Arial",16);
        
         public MDIParent1()
         {
@@ -272,8 +274,9 @@ namespace MiniWord
                 Font font = fontDialog.Font;
                 TextForm tf = (TextForm)this.ActiveMdiChild;
                 tf.getRichTextBox().Font = font;
-            
+                printFont = font;
             }
+
             
         }
 
@@ -289,7 +292,7 @@ namespace MiniWord
             StreamReader streamToPrint = new StreamReader(tf.Text);
             try
             {
-                TextPrintDoc tpd = new TextPrintDoc(streamToPrint); //假定为默认打印机
+                TextPrintDoc tpd = new TextPrintDoc(streamToPrint); 
                 
                 
                 if (storedPageSettings != null) 
@@ -313,7 +316,7 @@ namespace MiniWord
             }
         }
 
-        //打印 页面设置
+  
         private void printSetup(object sender, EventArgs e)
         {
             try
@@ -332,14 +335,45 @@ namespace MiniWord
             }
            
         }
-
+        
         private void printPreview(object sender, EventArgs e)
         {
             PrintPreviewDialog ppd = new PrintPreviewDialog();
-            if (ppd.ShowDialog() == DialogResult.OK) 
+            TextForm tf = (TextForm)this.ActiveMdiChild;
+            String s = tf.getRichTextBox().Text.ToString();
+            lineReader = new StringReader(s);
+            PrintDocument document = new PrintDocument();
+            document.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
+            ppd.Document = document;
+            ppd.ShowDialog();
+
+        }
+        private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            Graphics g = e.Graphics;
+            float linesPerPage = 0;
+            float yPosition = 0;
+            int count = 0;
+
+            float leftMargin = e.MarginBounds.Left;
+            float topMargin = e.MarginBounds.Top;
+            string line = null;
+
+            SolidBrush myBrush = new SolidBrush(Color.Black);
+
+            linesPerPage = e.MarginBounds.Height / printFont.GetHeight(g);
+
+            while (count < linesPerPage && ((line = lineReader.ReadLine()) != null))
             {
-                
+                yPosition = topMargin + (count * printFont.GetHeight(g));
+                g.DrawString(line, printFont, myBrush, leftMargin, yPosition, new StringFormat());
+                count++;
             }
+            if (line != null)
+                e.HasMorePages = true;
+            else
+                e.HasMorePages = false;
         }
         //将流输出到打印机
         public class TextPrintDoc : PrintDocument
@@ -387,6 +421,7 @@ namespace MiniWord
                 else
                     ev.HasMorePages = false;
             }
+            
         }
     }
 }
