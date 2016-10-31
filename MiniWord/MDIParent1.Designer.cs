@@ -50,10 +50,10 @@
             this.设置文本ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SetColor = new System.Windows.Forms.ToolStripMenuItem();
             this.font = new System.Windows.Forms.ToolStripMenuItem();
-            this.查找ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查找下一个ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.插入日期时间ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.自动换行ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wrapItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -224,10 +224,10 @@
             // 
             this.editMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.设置文本ToolStripMenuItem,
-            this.查找ToolStripMenuItem,
+            this.searchItem,
             this.查找下一个ToolStripMenuItem,
             this.插入日期时间ToolStripMenuItem,
-            this.自动换行ToolStripMenuItem,
+            this.wrapItem,
             this.selectAllToolStripMenuItem});
             this.editMenu.Name = "editMenu";
             this.editMenu.Size = new System.Drawing.Size(59, 21);
@@ -245,40 +245,46 @@
             // SetColor
             // 
             this.SetColor.Name = "SetColor";
-            this.SetColor.Size = new System.Drawing.Size(152, 22);
+            this.SetColor.Size = new System.Drawing.Size(100, 22);
             this.SetColor.Text = "颜色";
             this.SetColor.Click += new System.EventHandler(this.setColor);
             // 
             // font
             // 
             this.font.Name = "font";
-            this.font.Size = new System.Drawing.Size(152, 22);
+            this.font.Size = new System.Drawing.Size(100, 22);
             this.font.Text = "字体";
             this.font.Click += new System.EventHandler(this.setFont);
             // 
-            // 查找ToolStripMenuItem
+            // searchItem
             // 
-            this.查找ToolStripMenuItem.Name = "查找ToolStripMenuItem";
-            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.查找ToolStripMenuItem.Text = "查找";
+            this.searchItem.Name = "searchItem";
+            this.searchItem.Size = new System.Drawing.Size(161, 22);
+            this.searchItem.Text = "查找";
+            this.searchItem.Click += new System.EventHandler(this.SearchInFile);
             // 
             // 查找下一个ToolStripMenuItem
             // 
             this.查找下一个ToolStripMenuItem.Name = "查找下一个ToolStripMenuItem";
             this.查找下一个ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.查找下一个ToolStripMenuItem.Text = "查找下一个";
+            this.查找下一个ToolStripMenuItem.Click += new System.EventHandler(this.查找下一个ToolStripMenuItem_Click);
             // 
             // 插入日期时间ToolStripMenuItem
             // 
             this.插入日期时间ToolStripMenuItem.Name = "插入日期时间ToolStripMenuItem";
             this.插入日期时间ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.插入日期时间ToolStripMenuItem.Text = "插入日期/时间";
+            this.插入日期时间ToolStripMenuItem.Click += new System.EventHandler(this.插入日期时间ToolStripMenuItem_Click);
             // 
-            // 自动换行ToolStripMenuItem
+            // wrapItem
             // 
-            this.自动换行ToolStripMenuItem.Name = "自动换行ToolStripMenuItem";
-            this.自动换行ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.自动换行ToolStripMenuItem.Text = "自动换行";
+            this.wrapItem.Checked = true;
+            this.wrapItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.wrapItem.Name = "wrapItem";
+            this.wrapItem.Size = new System.Drawing.Size(161, 22);
+            this.wrapItem.Text = "自动换行";
+            this.wrapItem.Click += new System.EventHandler(this.自动换行ToolStripMenuItem_Click);
             // 
             // selectAllToolStripMenuItem
             // 
@@ -286,6 +292,7 @@
             this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.selectAllToolStripMenuItem.Text = "全选(&A)";
+            this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
             // windowsMenu
             // 
@@ -300,21 +307,21 @@
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.cascadeToolStripMenuItem.Text = "层叠(&C)";
             this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
             // 
             // tileVerticalToolStripMenuItem
             // 
             this.tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.tileVerticalToolStripMenuItem.Text = "垂直平铺(&V)";
             this.tileVerticalToolStripMenuItem.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
             // 
             // tileHorizontalToolStripMenuItem
             // 
             this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.tileHorizontalToolStripMenuItem.Text = "水平平铺(&H)";
             this.tileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
             // 
@@ -331,6 +338,7 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "关于(&A)";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // toolStrip
             // 
@@ -477,10 +485,10 @@
         private System.Windows.Forms.ToolStripButton printToolStripButton;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripMenuItem 查找ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchItem;
         private System.Windows.Forms.ToolStripMenuItem 查找下一个ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 插入日期时间ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 自动换行ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wrapItem;
         private System.Windows.Forms.ToolStripMenuItem 设置文本ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SetColor;
         private System.Windows.Forms.ToolStripMenuItem font;

@@ -8,3 +8,5 @@ d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\obj\Debug\
 d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\obj\Debug\MiniWord.exe
 d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\obj\Debug\MiniWord.pdb
 d:\users\lizi\documents\visual studio 2012\Projects\MiniWord\MiniWord\obj\Debug\MiniWord.TextForm.resources
+D:\Users\lizi\Documents\Visual Studio 2012\Projects\MiniWord\MiniWord\obj\Debug\MiniWord.SearchForm.resources
+D:\Users\lizi\Documents\Visual Studio 2012\Projects\MiniWord\MiniWord\obj\Debug\MiniWord.about.resources

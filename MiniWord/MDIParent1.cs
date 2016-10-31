@@ -421,7 +421,50 @@ namespace MiniWord
                 else
                     ev.HasMorePages = false;
             }
+
+        }
+        private SearchForm searchForm = null;
+        private void SearchInFile(object sender, EventArgs e)
+        {
+            searchForm = new SearchForm((TextForm)this.ActiveMdiChild);
+            searchForm.Show();
+        }
+
+        private void 查找下一个ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(searchForm ==null)
+                MessageBox.Show("请先进行查找");
+            else
+                searchForm.button1_Click(sender,e);
+        }
+
+        private void 插入日期时间ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             
+            String dt = System.DateTime.Now.ToString();
+            TextForm tf = (TextForm)this.ActiveMdiChild;
+            tf.getRichTextBox().Text += dt;
+        }
+
+        private void 自动换行ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.wrapItem.Checked = !this.wrapItem.Checked;
+            RichTextBox rich = ((TextForm)this.ActiveMdiChild).getRichTextBox();
+            rich.WordWrap = this.wrapItem.Checked ? true : false ;
+           
+        }
+
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TextForm tf = (TextForm)this.ActiveMdiChild;
+            tf.getRichTextBox().SelectAll();
+            tf.getRichTextBox().Focus();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.Show();
         }
     }
 }
