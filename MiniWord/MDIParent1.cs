@@ -289,9 +289,10 @@ namespace MiniWord
             {
                 SaveAs(tf, sender, e);
             }
-            StreamReader streamToPrint = new StreamReader(tf.Text);
+            StreamReader streamToPrint = null;
             try
             {
+                streamToPrint = new StreamReader(tf.Text);
                 TextPrintDoc tpd = new TextPrintDoc(streamToPrint); 
                 
                 
@@ -465,6 +466,16 @@ namespace MiniWord
         {
             About about = new About();
             about.Show();
+        }
+
+        private void printToolStripButton_Click(object sender, EventArgs e)
+        {
+            printFile(sender,e);
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            this.ActiveMdiChild.Close();
         }
     }
 }
